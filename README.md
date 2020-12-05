@@ -6,10 +6,9 @@
 We use a pretrained YOLO-tiny (8.9M params) since the task is relatively simple
 
 ## The database
-We build a small database consisting of 30 images. We use the three images provided in the [Test-Spline], we applied data augmentation such us rotations and color distortion, then we get 16 images. The other 14 images were obtained from the internet. Here some examples.
+We build a small database consisting of 30 images. We use the three images provided in the [Test-Spline](https://www.notion.so/Spline-ML-Test-56d8171c1e1044b0aaca3d4a24a75fbe), we applied data augmentation such us rotations and color distortion, then we get 16 images. The other 14 images were obtained from the internet. Here some examples.
 
-![alt text](readme-images/dataset1.jpg)
-![alt text](readme-images/dataset2.jpg)
+![alt text](readme-images/dataset1.jpg) ![alt text](readme-images/dataset2.jpg)
 
 The dataset was builded using the [Computer Vision Anotation](https://github.com/openvinotoolkit/cvat).
 
@@ -32,9 +31,14 @@ detect.py runs inference, our model was trained in the YOLOv3-tiny version. The 
 ```bash
 $ python detect.py --view-img --weights last10.pt --source spline_test/spline1.png
 ```
-Here some results:
-
+Here some results
 ![alt text](readme-images/spline1_predicted.png)
 ![alt text](readme-images/spline2_predicted.png)
 ![alt text](readme-images/spline3_predicted.png)
 
+
+## Detect all 6 main colors
+
+Many approaches to get the main colours use clousterization such us [ColorThief](https://pypi.org/project/colorthief/). in `principal_colors.py` file you can find an implementation of K-means to get the principal colours.
+
+![alt text](readme-images/principal-colors.png)
